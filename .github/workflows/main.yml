@@ -1,3 +1,42 @@
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_cXVpZXQtaGVyb24tMTkuY2xlcmsuYWNjb3VudHMuZGV2JA
 
 CLERK_SECRET_KEY=sk_test_RsVCeiKMhsk1YZtB6olg249r9iiMVNnWsDwSur85f5
+
+
+- name: Privileged Requester
+
+  uses: github/privileged-requester@v1.0.0
+
+  with:
+
+    # Repository scoped token
+
+    myToken: # default is ${{ github.token }}
+
+    # An alternative robot user PAT to be used instead of the built-in Actions token
+
+    robotUserToken: # optional
+
+    # Path where the privileged requester configuration can be found
+
+    path: # default is config/privileged-requester.yaml
+
+    # The creator of the PR for this pull request event
+
+    prCreator: # default is ${{ github.event.pull_request.user.login }}
+
+    # The number of the PR for this pull request event
+
+    prNumber: # default is ${{ github.event.pull_request.number }}
+
+    # An option to check that every commit in the PR is made from the privileged requester
+
+    checkCommits: # default is true
+
+    # An option to check that the PR diff only has a removal diff, with no additions
+
+    checkDiff: # default is true
+
+    # An option to check that the labels on the PR match those defined in the privileged requester config
+
+    checkLabels: # default is true
